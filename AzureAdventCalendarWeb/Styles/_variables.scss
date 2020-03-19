@@ -1,0 +1,15 @@
+﻿// Reference: https://github.com/twbs/bootstrap/blob/master/scss/_variables.scss
+
+@import url('https://fonts.googleapis.com/css?family=Chilanka&display=swap');
+
+$font-family-base: 'Chilanka', cursive;
+
+$body-bg: #EEE;
+$red: #dc143c;
+$primary: $red;
+$transparent-white: transparentize(white, 0.1);
+
+$navbar-padding-y: 0.4rem;
+$navbar-brand-padding-y: 0;
+    
+$enable-rounded: false;

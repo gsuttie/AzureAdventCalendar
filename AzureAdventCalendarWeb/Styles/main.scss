@@ -1,0 +1,48 @@
+﻿
+@import 'variables';
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+body {
+    background-image: url('/images/bg.jpg');
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.aac {
+    &-wrapper {
+        min-height: 100vh;
+    }
+
+    &-footer {
+        background: $light;
+        text-align: center;
+    }
+
+    &-subpage {
+        background: $transparent-white;
+        padding: $spacer * 1.4;
+    }
+
+    &-header {
+        background: $transparent-white;
+        justify-content: space-evenly;
+        align-items: center;
+        display: flex;
+        margin-bottom: $spacer;
+        text-align: center;
+        padding: $spacer / 0.9;
+
+        h1 {
+            font-weight: bolder;
+        }
+
+        &__middle {
+            flex-grow: 1;
+        }
+
+        img {
+            max-width: 20%;
+        }
+    }
+}

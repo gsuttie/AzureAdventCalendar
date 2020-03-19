@@ -1,0 +1,74 @@
+﻿@model AzureAdventCalendarWeb.Models.RootObject
+
+@{
+    ViewData["Title"] = "FAQ";
+}
+
+<header class="aac-header bg-white">
+    <img src="~/images/bit-azure.png" data-toggle="tooltip" data-placement="top" title="Azure" />
+    <div class="aac-header__middle">
+        <p><b>The Azure Advent Calendar Faq page:</b></p>
+        <p>The following is the faq page using an Azure Bot where you can ask it questions about the Azure Advent Calendar. </p>
+    </div>
+    <img src="~/images/xmastree.png" />
+</header>
+
+<div class="form-horizontal">
+        <br />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @using (Html.BeginForm())
+        {
+            <div class="form-group">
+                <table class="table table-bordered">
+                    <tbody class="bg-white">
+                        <tr class="thead-dark">
+                            <tr>
+                                <th scope="col">
+                                    @Html.LabelFor(model => model.Question,
+                                        htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextBox("SearchString", "",
+                                            new { style = "width: 800px;", placeholder = "What is the Azure Advent Calendar?" }) <input type="submit" value="Submit" />
+                                    </div>
+                                </th>
+                            </tr>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        }
+        <div class="form-group">
+            <table class="table table-bordered">
+                <tbody class="bg-white">
+                <tr class="thead-dark">
+                    <tr>
+                        <th scope="col">
+                            @if (Model.answers == null)
+                            {
+
+                                @Html.LabelFor(model => model.answers,
+                                    htmlAttributes: new {@class = "control-label col-md-2"})
+                                <div class="col-md-10">
+                                    @Html.DisplayFor(model => model.answers,
+                                        new {htmlAttributes = new {@class = "form-control"}})
+                                </div>
+                            }
+                            else
+                            {
+                                @foreach (var answer in Model.answers)
+                                 {
+                                     @Html.LabelFor(x => @answer.answer,
+                                         htmlAttributes: new {@class = "control-label col-md-2"})
+                                     <div class="col-md-10">
+                                         @Html.DisplayFor(x => @answer.answer,
+                                             new {htmlAttributes = new {@class = "form-control"}})
+                                     </div>
+                                 }
+                            }
+                        </th>
+                    </tr>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
