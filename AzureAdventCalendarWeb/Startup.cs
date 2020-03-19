@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.FeatureManagement;
 
 namespace AzureAdventCalendarWeb
 {
@@ -33,8 +32,6 @@ namespace AzureAdventCalendarWeb
             // Get the CustomSettings from appsettings.json
             // allow them to be passed to any class using dependency injection
             services.Configure<Models.CustomSettings>(Configuration.GetSection("CustomSettings"));
-
-            services.AddFeatureManagement();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,8 +51,6 @@ namespace AzureAdventCalendarWeb
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
-            app.UseAzureAppConfiguration();
 
             app.UseMvc(routes =>
             {

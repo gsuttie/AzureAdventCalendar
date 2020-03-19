@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 
 namespace AzureAdventCalendarWeb
 {
@@ -16,14 +15,6 @@ namespace AzureAdventCalendarWeb
                 .ConfigureAppConfiguration((hostingContext, config) =>
                 {
                     var settings = config.Build();
-
-                    config.AddAzureAppConfiguration(options =>
-                    {
-                        var url = settings["CustomSettings:AppConfig"];
-                        options
-                            .ConnectWithManagedIdentity(url)
-                            .UseFeatureFlags();
-                    });
                 })
          .UseStartup<Startup>();
     }
