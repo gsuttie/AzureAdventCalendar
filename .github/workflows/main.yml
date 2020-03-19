@@ -15,3 +15,15 @@ jobs:
         dotnet-version: 2.2.108
     - name: Build with dotnet
       run: dotnet build --configuration Release
+
+  deploy:
+    needs: build
+    name: Deploy App
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: deploy to azure web app
+      uses: azure/appservice-actions/webapp@master
+      with: 
+        app-name: azureadventcalendar
+        publish-profile: ${{ secrets.azureWebAppPublishProfile }} 
